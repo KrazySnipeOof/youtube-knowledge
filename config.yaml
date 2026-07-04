@@ -1,0 +1,236 @@
+# =============================================================================
+# YouTube Knowledge - scraper configuration
+# Edit this file to control what gets scraped and how links are filtered.
+# =============================================================================
+
+# How many videos to pull per search query and per channel/playlist.
+# Higher = more coverage but slower and more likely to be throttled by YouTube.
+limits:
+  per_query: 20
+  per_channel: 30
+
+# -----------------------------------------------------------------------------
+# TOPICS
+# Each topic has:
+#   queries:  YouTube search terms used to discover videos (source = "search")
+#   keywords: words that, if found in a link/title/domain, tag it with this topic
+# -----------------------------------------------------------------------------
+topics:
+  ai:
+    label: "AI"
+    queries:
+      - "AI agents tutorial"
+      - "LLM tutorial"
+      - "generative AI tools"
+      - "prompt engineering"
+    keywords:
+      - ai
+      - artificial intelligence
+      - llm
+      - gpt
+      - agent
+      - prompt
+      - chatbot
+      - openai
+      - anthropic
+      - claude
+      - huggingface
+      - hugging face
+      - langchain
+      - midjourney
+      - "stable diffusion"
+      - generative
+      - inference
+
+  ml:
+    label: "Machine Learning"
+    queries:
+      - "machine learning tutorial"
+      - "deep learning explained"
+      - "pytorch tutorial"
+      - "kaggle competition walkthrough"
+    keywords:
+      - machine learning
+      - deep learning
+      - neural network
+      - pytorch
+      - tensorflow
+      - scikit
+      - sklearn
+      - kaggle
+      - dataset
+      - "papers with code"
+      - arxiv
+      - jupyter
+      - colab
+
+  quant:
+    label: "Quant Finance"
+    queries:
+      - "quantitative finance"
+      - "algorithmic trading python"
+      - "backtesting trading strategy"
+      - "quant trading tutorial"
+    keywords:
+      - quant
+      - quantitative
+      - algorithmic trading
+      - backtest
+      - portfolio
+      - hedge
+      - options
+      - derivatives
+      - quantconnect
+      - alpaca
+      - interactive brokers
+      - bloomberg
+      - alpha
+      - factor
+
+  learning:
+    label: "Learning"
+    queries:
+      - "computer science roadmap"
+      - "best programming courses"
+      - "self taught developer resources"
+      - "study resources engineering"
+    keywords:
+      - course
+      - tutorial
+      - learn
+      - study
+      - education
+      - roadmap
+      - curriculum
+      - university
+      - coursera
+      - edx
+      - udemy
+      - mooc
+      - documentation
+      - docs
+      - textbook
+      - lecture
+      - notes
+      - cheatsheet
+
+  crypto:
+    label: "Crypto"
+    queries:
+      - "blockchain development tutorial"
+      - "solidity smart contract tutorial"
+      - "defi explained"
+      - "on chain analysis crypto"
+    keywords:
+      - crypto
+      - blockchain
+      - defi
+      - ethereum
+      - bitcoin
+      - solidity
+      - web3
+      - onchain
+      - on-chain
+      - wallet
+      - dex
+      - token
+      - smart contract
+      - etherscan
+      - dune
+
+# -----------------------------------------------------------------------------
+# CHANNELS / PLAYLISTS to always harvest (source = "channel")
+# Add full URLs. Examples:
+#   - url: "https://www.youtube.com/@channelhandle/videos"
+#     topic: ai
+#   - url: "https://www.youtube.com/playlist?list=PLxxxxxxxx"
+#     topic: ml
+# Leave empty to rely only on search.
+# -----------------------------------------------------------------------------
+channels: []
+
+# -----------------------------------------------------------------------------
+# SMART FILTER
+# drop_domains:        registrable domains to always discard (social, sponsors)
+# drop_url_substrings: if any appears in the URL, discard it (affiliate junk)
+# keep_domains:        allowlist that overrides drop_domains
+# -----------------------------------------------------------------------------
+filter:
+  keep_domains: []
+
+  drop_domains:
+    # --- the platform itself / self links ---
+    - youtube.com
+    - youtu.be
+    - m.youtube.com
+    # --- social ---
+    - twitter.com
+    - x.com
+    - instagram.com
+    - facebook.com
+    - fb.com
+    - tiktok.com
+    - linkedin.com
+    - threads.net
+    - reddit.com
+    - twitch.tv
+    - snapchat.com
+    - pinterest.com
+    - whatsapp.com
+    - discord.gg
+    - discord.com
+    - discordapp.com
+    - t.me
+    - telegram.me
+    - telegram.org
+    # --- support / payments / merch ---
+    - patreon.com
+    - paypal.com
+    - ko-fi.com
+    - buymeacoffee.com
+    - cash.app
+    - venmo.com
+    - teespring.com
+    - teepublic.com
+    - redbubble.com
+    - spreadshirt.com
+    - linktr.ee
+    - beacons.ai
+    # --- media (not topic resources) ---
+    - spotify.com
+    - soundcloud.com
+    - anchor.fm
+    # --- affiliate networks / lead-capture forms ---
+    - pxf.io
+    - sjv.io
+    - tally.so
+    # --- classic YouTube sponsors ---
+    - squarespace.com
+    - skillshare.com
+    - brilliant.org
+    - nordvpn.com
+    - expressvpn.com
+    - surfshark.com
+    - surfshark.deals
+    - privateinternetaccess.com
+    - hellofresh.com
+    - betterhelp.com
+    - manscaped.com
+    - audible.com
+    - ground.news
+    - incogni.com
+    - aura.com
+    - displate.com
+    - honey.com
+    - morningbrew.com
+
+  drop_url_substrings:
+    - "amzn.to"
+    - "tag="
+    - "/ref="
+    - "via="
+    - "/aff"
+    - "affiliate"
+    - "coupon"
+    - "promo_code"
+    - "discount_code"

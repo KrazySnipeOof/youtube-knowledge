@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Knowledge — Links from descriptions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="head-row">
+      <h1>YouTube Knowledge</h1>
+      <div class="meta" id="meta"></div>
+    </div>
+    <p class="sub">Useful links harvested from YouTube video descriptions, filtered and ranked.</p>
+
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search links, domains, video titles…" autocomplete="off" />
+      <select id="sort">
+        <option value="score">Sort: Rank</option>
+        <option value="video_count">Sort: Most videos</option>
+        <option value="channel_count">Sort: Most channels</option>
+        <option value="domain">Sort: Domain A→Z</option>
+      </select>
+    </div>
+
+    <div class="topics" id="topic-filters"></div>
+  </header>
+
+  <main>
+    <div id="empty" class="empty hidden"></div>
+    <div id="results"></div>
+  </main>
+
+  <footer>
+    <span id="count"></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

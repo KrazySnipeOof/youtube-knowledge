@@ -1,0 +1,5 @@
+# Python deps for the scraper.
+# yt-dlp is used via its CLI (must be on PATH), not imported, so it's optional
+# here — install it separately if you don't already have it:
+#   pip install -U yt-dlp
+pyyaml>=6.0
